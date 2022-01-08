@@ -20,7 +20,7 @@ jobs:
     - name: requirements(3/3)
       run: sudo apt-get update && sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
     - name: permissions
-      run: chmod +x autogen.sh
+      run: find . -iname "*.sh" -exec bash -c 'chmod +x "$0"' {} \;
     - name: autogen
       run: ./autogen.sh
     - name: configure
